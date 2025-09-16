@@ -4,49 +4,56 @@
 
 using namespace std;
 
-
-//entry point
 int main()
 {
-	int PlayerX = 0;
-	int PlayerY = 0;
-	bool bIsRunning = true;
+	int PlayerInput = 2;
 
-	while (bIsRunning)
+	//1. 가위
+	//2. 주먹
+	//3. 보자기
+	cin >> PlayerInput;
+
+	srand(time(nullptr));
+
+	int EnemyInput = rand() % 3 + 1;
+
+	if (PlayerInput == EnemyInput)
 	{
-		int KeyCode = _getch();
-
-		if (KeyCode == 'w')
-		{
-			PlayerY--;
-		}
-		else if (KeyCode == 's')
-		{
-			PlayerY++;
-		}
-		else if (KeyCode == 'a')
-		{
-			PlayerX--;
-		}
-		else if (KeyCode == 'd')
-		{
-			PlayerX++;
-		}
-		else if (KeyCode == 'q')
-		{
-			bIsRunning = false;
-		}
-
-		system("cls");
-
-		COORD Cur;
-		Cur.X = PlayerX;
-		Cur.Y = PlayerY;
-		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Cur);
-
-		cout << "P" << endl;
+		cout << "무승부" << endl;
 	}
-
-
-	return 0;
+	else if (PlayerInput == 1) //가위
+	{
+		if (EnemyInput == 3) //보자기
+		{
+			cout << "승리" << endl;
+		}
+		else if (EnemyInput == 2)
+		{
+			cout << "패배" << endl;
+		}
+	}
+	else if (PlayerInput == 2) //주먹
+	{
+		if (EnemyInput == 1) //가위
+		{
+			cout << "승리" << endl;
+		}
+		else if (EnemyInput == 3) //보자기
+		{
+			cout << "패배" << endl;
+		}
+	}
+	else if (PlayerInput == 3) //보자기
+	{
+		if (EnemyInput == 2) //주먹
+		{
+			cout << "승리" << endl;
+		}
+		else if (EnemyInput == 1) //가위
+		{
+			cout << "패배" << endl;
+		}
+	}
+	
 }
+
