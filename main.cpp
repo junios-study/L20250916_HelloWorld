@@ -4,12 +4,15 @@
 
 using namespace std;
 
+
+//entry point
 int main()
 {
 	int PlayerX = 0;
 	int PlayerY = 0;
+	bool bIsRunning = true;
 
-	while (true)
+	while (bIsRunning)
 	{
 		int KeyCode = _getch();
 
@@ -29,6 +32,11 @@ int main()
 		{
 			PlayerX++;
 		}
+		else if (KeyCode == 'q')
+		{
+			bIsRunning = false;
+		}
+
 		system("cls");
 
 		COORD Cur;
