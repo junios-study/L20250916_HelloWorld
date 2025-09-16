@@ -1,17 +1,23 @@
 #include <iostream>
+#include <windows.h>
 
 using namespace std;
 
-//C++
-
 int main()
 {
-	char C = 97;
-	char D = 'a';
+	int PlayerX = 0;
+	int PlayerY = 0;
 
+	PlayerX++;
+	PlayerY++;
 
-	cout << C << endl;
-	cout << D << endl;
+	//¿£Áø
+	COORD Cur;
+	Cur.X = PlayerX;
+	Cur.Y = PlayerY;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Cur);
+
+	cout << "P" << endl;
 
 	return 0;
 }
