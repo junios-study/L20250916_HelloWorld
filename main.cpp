@@ -4,57 +4,66 @@
 
 using namespace std;
 
-
 int main()
 {
-	int PlayerInput = 2;
+	int PlayerX = 1;
+	int PlayerY = 1;
+	char PlayerShape = 'P';
 
-	//1. 가위
-	//2. 주먹
-	//3. 보자기
-	cin >> PlayerInput;
+	int Map[10][10] = {
+		{1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+		{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+		{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+		{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+		{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+		{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+		{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+		{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+		{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+		{1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+	};
 
-	srand(time(nullptr));
+	while (true)
+	{
+		int KeyCode = _getch();
 
-	int EnemyInput = rand() % 3 + 1;
+		if (KeyCode == 'w')
+		{
+			PlayerY--;
+		}
+		else if (KeyCode == 's')
+		{
+			PlayerY++;
+		}
+		else if (KeyCode == 'a')
+		{
+			PlayerX--;
+		}
+		else if (KeyCode == 'd')
+		{
+			PlayerX++;
+		}
 
-	if (PlayerInput == EnemyInput)
-	{
-		cout << "무승부" << endl;
-	}
-	else if (PlayerInput == 1) //가위
-	{
-		if (EnemyInput == 3) //보자기
+		system("cls");
+
+		for (int Y = 0; Y < 10; ++Y)
 		{
-			cout << "승리" << endl;
-		}
-		else if (EnemyInput == 2)
-		{
-			cout << "패배" << endl;
-		}
-	}
-	else if (PlayerInput == 2) //주먹
-	{
-		if (EnemyInput == 1) //가위
-		{
-			cout << "승리" << endl;
-		}
-		else if (EnemyInput == 3) //보자기
-		{
-			cout << "패배" << endl;
+			for (int X = 0; X < 10; ++X)
+			{
+				if (PlayerX == X && PlayerY == Y)
+				{
+					cout << PlayerShape;
+				}
+				else if (Map[Y][X] == 0)
+				{
+					cout << ' ';
+				}
+				else if (Map[Y][X] == 1)
+				{
+					cout << '*';
+				}
+			}
+			cout << '\n';
 		}
 	}
-	else if (PlayerInput == 3) //보자기
-	{
-		if (EnemyInput == 2) //주먹
-		{
-			cout << "승리" << endl;
-		}
-		else if (EnemyInput == 1) //가위
-		{
-			cout << "패배" << endl;
-		}
-	}
-	
 }
-
