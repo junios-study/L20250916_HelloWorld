@@ -8,34 +8,27 @@ int main()
 {
 	int PlayerX = 0;
 	int PlayerY = 0;
-	char PlayerShape = 'P';
 
-	bool IsAlive = true;
-	IsAlive = false;
+	int KeyCode =  _getch();
 
-	bool IsHungry = true;
-
-	if (조건식)
+	if (KeyCode == 'w')
 	{
-		//할일
+		PlayerY--;
 	}
-	else if (조건식)
+	else if (KeyCode == 's')
 	{
-
+		PlayerY++;
 	}
-	else
+	else if (KeyCode == 'a')
 	{
-
+		PlayerX--;
 	}
-	 
+	else if (KeyCode == 'd')
+	{
+		PlayerX++;
+	}
 
-	//처리
-	PlayerX++;
-	PlayerY++;
-	PlayerY--;
-
-	//Render
-	cout << PlayerShape << endl;
+	cout << "P" << endl;
 
 	return 0;
 }
