@@ -8,43 +8,34 @@ int main()
 {
 	int PlayerX = 0;
 	int PlayerY = 0;
+	char PlayerShape = 'P';
 
+	bool IsAlive = true;
+	IsAlive = false;
+
+	bool IsHungry = true;
+
+	if (조건식)
+	{
+		//할일
+	}
+	else if (조건식)
+	{
+
+	}
+	else
+	{
+
+	}
+	 
+
+	//처리
 	PlayerX++;
 	PlayerY++;
+	PlayerY--;
 
-	//엔진
-	COORD Cur;
-	Cur.X = PlayerX;
-	Cur.Y = PlayerY;
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Cur);
-
-	cout << "P" << endl;
-	_getch();
-	system("cls");
-
-	PlayerX++;
-
-	//COORD Cur;
-	Cur.X = PlayerX;
-	Cur.Y = PlayerY;
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Cur);
-
-	cout << "P" << endl;
-	_getch();
-	system("cls");
-
-	PlayerY++;
-
-	//COORD Cur;
-	Cur.X = PlayerX;
-	Cur.Y = PlayerY;
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Cur);
-
-	cout << "P" << endl;
-	_getch();
-	system("cls");
-
-
+	//Render
+	cout << PlayerShape << endl;
 
 	return 0;
 }
